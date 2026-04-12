@@ -1,0 +1,267 @@
+// ==UserScript==
+// @name         国防云图书馆配置库
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  配置库 - 为自动翻页下载器提供配置
+// @author       Your Name
+// @grant        none
+// ==/UserScript==
+
+(function(global) {
+    'use strict';
+
+    // ==================== 基础配置 ====================
+    const CONFIG = {
+        // 延迟配置
+        minDelay: 1000,           // 最小延迟(ms)
+        maxDelay: 3000,           // 最大延迟(ms)
+        pageLoadTimeout: 8000,    // 页面加载超时(ms)
+        
+        // PDF配置
+        A4_WIDTH: 210,            // A4宽度(mm)
+        A4_HEIGHT: 297,           // A4高度(mm)
+        
+        // 重试配置
+        maxRetries: 3,            // 最大重试次数
+        
+        // 图片质量配置
+        imageQuality: 1.0,        // JPEG质量(0-1)
+        
+        // 下载配置
+        autoDownload: true,       // 是否自动下载PDF
+        notifyOnComplete: true,   // 完成时是否通知
+    };
+
+    // ==================== 页面元素选择器配置 ====================
+    const SELECTORS = {
+        // 标题选择器
+        title: 'title',
+        
+        // 菜单列表
+        menuList: '#MenuList',
+        menuListFallback: '#MenuList ul',
+        
+        // 内容区域
+        contentArea: '.q-OnlineReading_body',
+        contentImg: '.q-OnlineReading_body img',
+        
+        // 翻页按钮
+        nextPageButton: 'a:contains("下一页"), button:contains("下一页"), .q-OnlineReading-nextIcon, .next-icon, .page-next',
+        nextPageFunction: ['Press.Next', 'nextPage'],
+        
+        // UI容器
+        uiContainer: 'body',
+    };
+
+    // ==================== URL配置 ====================
+    const URL_CONFIG = {
+        // 图片URL匹配规则
+        imageUrlPatterns: ['aliyuncs.com', 'oss'],
+        
+        // 需要匹配的页面
+        matchPatterns: [
+            'http://e.guofangyun.net:8080/EpubFile/*/OPS/default.html*',
+            'https://libyc.nudt.edu.cn/http/8080/net/guofangyun/e/yitlink/EpubFile/*/OPS/default.html*'
+        ],
+    };
+
+    // ==================== UI配置 ====================
+    const UI_CONFIG = {
+        // 面板位置
+        position: {
+            bottom: '20px',
+            right: '20px',
+        },
+        
+        // 面板尺寸
+        size: {
+            width: '300px',
+        },
+        
+        // 主题颜色
+        theme: {
+            primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            success: '#4caf50',
+            danger: '#f44336',
+            warning: '#ff9800',
+            text: '#ffffff',
+            accent: '#ffd700',
+        },
+        
+        // 动画配置
+        animation: {
+            enabled: true,
+            duration: 300,
+        },
+        
+        // 文本配置
+        texts: {
+            title: '📚 国防云图书馆翻页下载工具',
+            startBtn: '▶ 开始翻页下载',
+            stopBtn: '⏹ 停止',
+            minimizeBtn: '−',
+            closeBtn: '×',
+            bookTitleLabel: '书名：',
+            totalPagesLabel: '总页数：',
+            currentPageLabel: '当前页：',
+            capturedLabel: '已捕获：',
+            loadingText: '加载中...',
+        },
+    };
+
+    // ==================== 高级配置 ====================
+    const ADVANCED_CONFIG = {
+        // 调试模式
+        debug: true,
+        
+        // 日志级别: 0-关闭, 1-错误, 2-警告, 3-信息, 4-详细
+        logLevel: 3,
+        
+        // 性能配置
+        performance: {
+            enableCache: true,
+            parallelDownloads: 1,      // 并行下载数（当前版本不支持并行）
+            chunkSize: 10,             // 分批处理大小
+        },
+        
+        // 错误处理
+        errorHandling: {
+            retryOnFail: true,
+            skipOnFail: false,
+            fallbackToManual: true,
+        },
+        
+        // 存储配置
+        storage: {
+            useLocalStorage: false,
+            storageKey: 'guofangyun_downloader_config',
+        },
+    };
+
+    // ==================== 辅助函数 ====================
+    const HELPERS = {
+        /**
+         * 获取配置值（支持路径访问）
+         * @param {string} path - 配置路径，如 'CONFIG.minDelay'
+         * @returns {*} 配置值
+         */
+        get: function(path) {
+            const parts = path.split('.');
+            let current = global.GFY_CONFIG;
+            
+            for (const part of parts) {
+                if (current && typeof current === 'object' && part in current) {
+                    current = current[part];
+                } else {
+                    return undefined;
+                }
+            }
+            return current;
+        },
+        
+        /**
+         * 设置配置值
+         * @param {string} path - 配置路径
+         * @param {*} value - 配置值
+         */
+        set: function(path, value) {
+            const parts = path.split('.');
+            const lastPart = parts.pop();
+            let current = global.GFY_CONFIG;
+            
+            for (const part of parts) {
+                if (!(part in current)) {
+                    current[part] = {};
+                }
+                current = current[part];
+            }
+            current[lastPart] = value;
+        },
+        
+        /**
+         * 重置为默认配置
+         */
+        reset: function() {
+            global.GFY_CONFIG = {
+                CONFIG: { ...CONFIG },
+                SELECTORS: { ...SELECTORS },
+                URL_CONFIG: { ...URL_CONFIG },
+                UI_CONFIG: { ...UI_CONFIG },
+                ADVANCED_CONFIG: { ...ADVANCED_CONFIG },
+                HELPERS: { ...HELPERS }
+            };
+        },
+        
+        /**
+         * 导出配置为JSON
+         */
+        export: function() {
+            const exportConfig = { ...global.GFY_CONFIG };
+            delete exportConfig.HELPERS;
+            return JSON.stringify(exportConfig, null, 2);
+        },
+        
+        /**
+         * 导入配置
+         * @param {string} jsonStr - JSON配置字符串
+         */
+        import: function(jsonStr) {
+            try {
+                const imported = JSON.parse(jsonStr);
+                Object.assign(global.GFY_CONFIG, imported);
+                return true;
+            } catch (e) {
+                console.error('[配置库] 导入配置失败:', e);
+                return false;
+            }
+        },
+        
+        /**
+         * 日志输出
+         */
+        log: function(level, ...args) {
+            const config = global.GFY_CONFIG;
+            if (!config.ADVANCED_CONFIG.debug) return;
+            
+            const logLevel = config.ADVANCED_CONFIG.logLevel;
+            const levels = ['ERROR', 'WARN', 'INFO', 'DEBUG'];
+            
+            if (level <= logLevel) {
+                const prefix = `[GFY-${levels[level]}]`;
+                switch(level) {
+                    case 0: console.error(prefix, ...args); break;
+                    case 1: console.warn(prefix, ...args); break;
+                    case 2: console.info(prefix, ...args); break;
+                    case 3: console.log(prefix, ...args); break;
+                    default: console.log(prefix, ...args);
+                }
+            }
+        }
+    };
+
+    // ==================== 导出配置对象 ====================
+    global.GFY_CONFIG = {
+        CONFIG,
+        SELECTORS,
+        URL_CONFIG,
+        UI_CONFIG,
+        ADVANCED_CONFIG,
+        HELPERS
+    };
+    
+    HELPERS.log(2, '配置库已加载');
+    
+    // 如果支持localStorage，尝试加载保存的配置
+    if (typeof localStorage !== 'undefined' && ADVANCED_CONFIG.storage.useLocalStorage) {
+        try {
+            const saved = localStorage.getItem(ADVANCED_CONFIG.storage.storageKey);
+            if (saved) {
+                HELPERS.import(saved);
+                HELPERS.log(2, '已加载保存的配置');
+            }
+        } catch (e) {
+            HELPERS.log(0, '加载保存配置失败:', e);
+        }
+    }
+    
+})(typeof window !== 'undefined' ? window : this);
