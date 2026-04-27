@@ -1,6 +1,7 @@
 // thesis-processor.js
 // 论文图片处理与PDF合成核心库
 // 依赖：jsPDF库
+// 修复：下载队列空值防御，杜绝政法大学等平台出现的 undefined 错误
 
 ;(function (global) {
     'use strict';
@@ -100,17 +101,39 @@
         });
     }
 
-    // ==================== 图片下载 ====================
+    // ==================== 图片下载（防御强化） ====================
     async function downloadImages(imageInfos, enhanceParams, onProgress) {
         const { brightness, contrast, shadow, highlight, jpegQuality } = enhanceParams;
         const config = window.ThesisProcessorConfig || DEFAULT_CONFIG;
         const results = [];
         let finished = 0;
-        const total = imageInfos.length;
-        const queue = [...imageInfos];
+
+        // 防御：过滤掉所有无效元素，并补齐缺失字段
+        const cleanedInfos = imageInfos
+            .filter(info => info != null && typeof info === 'object' && typeof info.src === 'string' && info.src.length > 0)
+            .map((info, idx) => ({
+                src: info.src,
+                logicalPage: info.logicalPage != null ? info.logicalPage : idx,
+                chunkId: info.chunkId != null ? info.chunkId : idx,
+                hasWatermark: Boolean(info.hasWatermark),
+                enhance: info.enhance !== false
+            }));
+
+        if (cleanedInfos.length === 0) {
+            throw new Error('没有可用的图片地址，请确认页面已完全加载且网络正常');
+        }
+
+        console.log(`[ThesisProcessor] 有效图片块: ${cleanedInfos.length} / ${imageInfos.length}`);
+
+        const total = cleanedInfos.length;
+        const queue = [...cleanedInfos];
         let lastRequestTime = 0;
 
         async function downloadSingle(info) {
+            // 二次防御
+            if (!info || !info.src) {
+                throw new Error('无效的图片信息对象');
+            }
             for (let attempt = 1; attempt <= 3; attempt++) {
                 try {
                     const response = await fetch(info.src);
@@ -146,6 +169,14 @@
                 if (wait > 0) await delay(wait);
 
                 const info = queue.shift();
+                // 防御：取出后再次检查（尤其并发环境）
+                if (!info || !info.src) {
+                    console.warn('[ThesisProcessor] 跳过空图片项');
+                    finished++;
+                    if (onProgress) onProgress(finished, total, results.length);
+                    continue;
+                }
+
                 lastRequestTime = Date.now();
 
                 try {
@@ -164,7 +195,7 @@
         }
 
         const workers = [];
-        const workerCount = Math.min(config.concurrencyLimit, total);
+        const workerCount = Math.min(config.concurrencyLimit, queue.length);
         for (let i = 0; i < workerCount; i++) {
             workers.push(worker());
         }
