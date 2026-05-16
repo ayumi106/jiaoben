@@ -1,1 +1,156 @@
-var _0x3a9e=['\x6d\x61\x74\x63\x68','\x68\x6f\x73\x74\x6e\x61\x6d\x65','\x77\x77\x77\x2e\x69\x74\x65\x78\x74\x62\x6f\x6f\x6b\x2e\x63\x6e','\x77\x77\x77\x2e\x69\x72\x65\x73\x65\x61\x72\x63\x68\x62\x6f\x6f\x6b\x2e\x63\x6e','\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72','\x62\x6f\x6f\x6b\x2d\x69\x6d\x67\x20\x61\x5b\x68\x72\x65\x66\x2a\x3d\x22\x67\x6f\x43\x64\x66\x22\x5d','\x68\x72\x65\x66','\x6f\x72\x69\x67\x69\x6e','\x73\x65\x61\x72\x63\x68\x50\x61\x72\x61\x6d\x73','\x67\x65\x74','\x63\x64\x66','\x2e\x62\x6f\x6f\x6b\x2d\x74\x69\x74\x6c\x65\x20\x61\x2e\x62\x6f\x6f\x6b\x5f\x6e\x61\x6d\x65','\x74\x69\x74\x6c\x65','\x74\x65\x78\x74\x43\x6f\x6e\x74\x65\x6e\x74','\x2e\x62\x6f\x6f\x6b\x2d\x68\x69\x6e\x74\x20\x61','\x63\x6c\x65\x61\x6e\x46\x69\x6c\x65\x6e\x61\x6d\x65','\x2e\x70\x64\x66','\x2f\x66\x2f\x63\x64\x66\x2f\x66\x69\x6c\x65\x3f\x66\x69\x6c\x65\x3d','\x62\x6f\x6f\x6b\x53\x74\x6f\x72\x65\x50\x61\x74\x68','\x62\x6f\x6f\x6b\x49\x64','\x65\x62\x6f\x6f\x6b','\x6e\x61\x6d\x65','\x6e\x61\x6d\x65\x45\x4e\x47','\x61\x75\x74\x68\x6f\x72','\x70\x75\x62\x6c\x69\x73\x68\x59\x65\x61\x72','\x65\x69\x73\x62\x6e','\x2e\x65\x62\x6f\x6f\x6b\x2d\x64\x65\x74\x61\x69\x6c\x2d\x63\x6f\x6e\x74\x65\x6e\x74\x20\x2e\x74\x69\x74\x6c\x65\x20\x70','\x6e\x61\x6d\x65\x45\x6e\x67\x49\x64','\x61\x75\x74\x68\x6f\x72\x54\x65\x78\x74\x43\x6f\x6e','\xe2\x80\x94\x20','\xe5\x87\xba\xe7\x89\x88\xe4\xbf\xa1\xe6\x81\xaf\x5b\x5e\x30\x2d\x39\x5d\x2a\x28\x5c\x64\x7b\x34\x7d\x29','\x62\x6f\x6f\x6b\x5f\x65\x69\x73\x62\x6e','\xe6\x95\x99\xe6\x9d\x90','\x26\x62\x6f\x6f\x6b\x49\x64\x3d','\x26\x6f\x66\x66\x69\x63\x65\x4e\x61\x6d\x65\x3d\x6e\x75\x6c\x6c\x26\x6f\x49\x64\x3d\x6e\x75\x6c\x6c','\x50\x44\x46\x4c\x69\x62','\x50\x44\x46\x44\x6f\x63\x75\x6d\x65\x6e\x74','\x6c\x6f\x61\x64','\x69\x67\x6e\x6f\x72\x65\x45\x6e\x63\x72\x79\x70\x74\x69\x6f\x6e','\x67\x65\x74\x50\x61\x67\x65\x73','\x6e\x6f\x64\x65','\x52\x65\x73\x6f\x75\x72\x63\x65\x73','\x6c\x6f\x6f\x6b\x75\x70','\x50\x44\x46\x4e\x61\x6d\x65','\x6f\x66','\x58\x4f\x62\x6a\x65\x63\x74','\x50\x44\x46\x44\x69\x63\x74','\x64\x69\x63\x74','\x65\x6e\x74\x72\x69\x65\x73','\x65\x6e\x63\x6f\x64\x65\x64\x4e\x61\x6d\x65','\x76\x61\x6c\x75\x65','\x74\x65\x73\x74','\x63\x6f\x6e\x74\x65\x78\x74','\x53\x4d\x61\x73\x6b','\x64\x65\x6c\x65\x74\x65','\x73\x69\x7a\x65','\x73\x61\x76\x65','\x75\x73\x65\x4f\x62\x6a\x65\x63\x74\x53\x74\x72\x65\x61\x6d\x73','\x61\x64\x64\x44\x65\x66\x61\x75\x6c\x74\x50\x61\x67\x65','\x6f\x62\x6a\x65\x63\x74\x73\x50\x65\x72\x54\x69\x63\x6b','\x75\x70\x64\x61\x74\x65\x46\x69\x65\x6c\x64\x41\x70\x70\x65\x61\x72\x61\x6e\x63\x65\x73','\x63\x72\x65\x64\x65\x6e\x74\x69\x61\x6c\x73','\x69\x6e\x63\x6c\x75\x64\x65','\x52\x65\x66\x65\x72\x65\x72','\x41\x63\x63\x65\x70\x74','\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x70\x64\x66\x2c\x20\x2a\x2f\x2a','\x6f\x6b','\x73\x74\x61\x74\x75\x73','\x43\x6f\x6e\x74\x65\x6e\x74\x2d\x4c\x65\x6e\x67\x74\x68','\x62\x6c\x6f\x62','\x62\x6f\x64\x79','\x67\x65\x74\x52\x65\x61\x64\x65\x72','\x72\x65\x61\x64','\x64\x6f\x6e\x65','\x76\x61\x6c\x75\x65','\x70\x75\x73\x68','\x6c\x65\x6e\x67\x74\x68','\x74\x6f\x46\x69\x78\x65\x64','\x61\x72\x72\x61\x79\x42\x75\x66\x66\x65\x72','\x63\x72\x65\x61\x74\x65\x4f\x62\x6a\x65\x63\x74\x55\x52\x4c','\x61','\x64\x6f\x77\x6e\x6c\x6f\x61\x64','\x63\x6c\x69\x63\x6b','\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64','\x72\x65\x6d\x6f\x76\x65\x43\x68\x69\x6c\x64','\x72\x65\x76\x6f\x6b\x65\x4f\x62\x6a\x65\x63\x74\x55\x52\x4c','\x73\x65\x74\x55\x49','\x63\x61\x74\x63\x68','\x6c\x6f\x67','\x6d\x65\x73\x73\x61\x67\x65','\x32\x30\x32\x36\x2d\x31\x32\x2d\x33\x31'];(function(_0x1b2f,_0x5a7b){var _0x3f=function(_0x29){while(--_0x29){_0x1b2f['push'](_0x1b2f['shift']());}};_0x3f(++_0x5a7b);}(_0x3a9e,0x15e));var _0x5b=function(_0x4e,_0x3a){_0x4e=_0x4e-0x0;var _0x2b=_0x3a9e[_0x4e];return _0x2b;};window['\x69\x74\x65\x78\x74\x62\x6f\x6f\x6b\x44\x6f\x77\x6e\x6c\x6f\x61\x64\x65\x72']={};const _0x2245a2=_0x5b;var _0x4f=new Date(_0x2245a2('\x59'));if(new Date()>_0x4f)throw new Error('\u8fc7\u671f');window['\x69\x74\x65\x78\x74\x62\x6f\x6f\x6b\x44\x6f\x77\x6e\x6c\x6f\x61\x64\x65\x72']['\x67\x65\x74\x42\x6f\x6f\x6b\x49\x6e\x66\x6f']=function(){var _0x24=location[_0x2245a2('\x31')];if(_0x24===_0x2245a2('\x32'))return _0x35e6();if(_0x24===_0x2245a2('\x33'))return _0x3c91();return null;};function _0x35e6(){var _0x3e=document[_0x2245a2('\x34')](_0x2245a2('\x35'));if(!_0x3e)return null;var _0x2f=new URL(_0x3e[_0x2245a2('\x36')],location[_0x2245a2('\x37')]);var _0x37=_0x2f[_0x2245a2('\x38')][_0x2245a2('\x39')](_0x2245a2('\x3a'));if(!_0x37)return null;var _0x4d='';var _0x50=document[_0x2245a2('\x34')](_0x2245a2('\x3b'));if(_0x50)_0x4d=(_0x50[_0x2245a2('\x3c')]||_0x50[_0x2245a2('\x3d')]||'')['\x72\x65\x70\x6c\x61\x63\x65'](/\s+/g,' ')['\x74\x72\x69\x6d']();var _0x1e='';var _0x3c=document[_0x2245a2('\x34')](_0x2245a2('\x3e'));if(_0x3c)_0x1e=_0x3c[_0x2245a2('\x3d')]['\x74\x72\x69\x6d']();var _0x31=_0x5742(_0x4d)+(_0x1e?' '+_0x5742(_0x1e):'')+_0x2245a2('\x3f');var _0x23=_0x2245a2('\x40')+encodeURIComponent(_0x37);return{'\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x55\x72\x6c':_0x23,'\x66\x69\x6c\x65\x6e\x61\x6d\x65':_0x31};}function _0x3c91(){if(typeof bookStorePath===_0x2245a2('\x5a')||typeof bookId===_0x2245a2('\x5a'))return null;var _0x2d=bookStorePath;if(!_0x2d)return null;var _0x47='',_0x4b='',_0x16='',_0x57='',_0x4f='';if(typeof ebook!==_0x2245a2('\x5a')){_0x47=ebook[_0x2245a2('\x42')]||'';_0x4b=ebook[_0x2245a2('\x43')]||'';_0x16=ebook[_0x2245a2('\x44')]||'';_0x57=ebook[_0x2245a2('\x45')]||'';_0x4f=ebook[_0x2245a2('\x46')]||'';}if(!_0x47){var _0x55=document[_0x2245a2('\x34')](_0x2245a2('\x47'));if(_0x55)_0x47=_0x55[_0x2245a2('\x3d')]['\x74\x72\x69\x6d']();}if(!_0x4b){var _0x5c=document[_0x2245a2('\x48')](_0x2245a2('\x49'));if(_0x5c)_0x4b=_0x5c[_0x2245a2('\x3d')]['\x72\x65\x70\x6c\x61\x63\x65'](/\s+/g,' ')['\x74\x72\x69\x6d']();}if(!_0x16){var _0x5e=document[_0x2245a2('\x48')](_0x2245a2('\x4a'));if(_0x5e)_0x16=_0x5e[_0x2245a2('\x3d')]['\x72\x65\x70\x6c\x61\x63\x65']('\u2014 ','')['\x74\x72\x69\x6d']();}if(!_0x57){var _0x5a=document[_0x2245a2('\x5b')]['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']['\x6d\x61\x74\x63\x68'](new RegExp(_0x2245a2('\x4c')));if(_0x5a)_0x57=_0x5a[0x1];}if(!_0x4f){var _0x5b=document[_0x2245a2('\x48')](_0x2245a2('\x4d'));if(_0x5b)_0x4f=_0x5b[_0x2245a2('\x3d')]['\x74\x72\x69\x6d']();}var _0x36=[_0x47,_0x4b,_0x16,_0x57,_0x4f]['\x6d\x61\x70'](_0x5742)['\x66\x69\x6c\x74\x65\x72'](Boolean);var _0x2c=(_0x36['\x6a\x6f\x69\x6e'](' ')||_0x2245a2('\x4e'))+_0x2245a2('\x3f');var _0x3d=_0x2245a2('\x40')+encodeURIComponent(_0x2d)+_0x2245a2('\x4f')+bookId+_0x2245a2('\x50');return{'\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x55\x72\x6c':_0x3d,'\x66\x69\x6c\x65\x6e\x61\x6d\x65':_0x2c};}function _0x5742(_0x33){if(_0x33===undefined||_0x33===null)return'';return String(_0x33)['\x72\x65\x70\x6c\x61\x63\x65'](/[<>:"/\\|?*\n\r]/g,' ')['\x72\x65\x70\x6c\x61\x63\x65'](/\s+/g,' ')['\x74\x72\x69\x6d']();}window['\x69\x74\x65\x78\x74\x62\x6f\x6f\x6b\x44\x6f\x77\x6e\x6c\x6f\x61\x64\x65\x72']['\x72\x65\x6d\x6f\x76\x65\x57\x61\x74\x65\x72\x6d\x61\x72\x6b\x42\x79\x4e\x61\x6d\x65']=function(_0x59){if(typeof PDFLib===_0x2245a2('\x5a'))throw new Error('\u4f9d\u8d56\u672a\u52a0\u8f7d');var _0x20=PDFLib[_0x2245a2('\x51')],_0x2c=PDFLib[_0x2245a2('\x52')],_0x1d=PDFLib[_0x2245a2('\x53')];return _0x20[_0x2245a2('\x54')](_0x59,{'\x69\x67\x6e\x6f\x72\x65\x45\x6e\x63\x72\x79\x70\x74\x69\x6f\x6e':!![]})['\x74\x68\x65\x6e'](function(_0x5d){var _0x1a=_0x5d[_0x2245a2('\x55')]();var _0x28=0x0;for(var _0x48=0x0;_0x48<_0x1a[_0x2245a2('\x56')];_0x48++){var _0x34=_0x1a[_0x48][_0x2245a2('\x57')][_0x2245a2('\x58')]();if(!_0x34)continue;var _0x19=_0x34[_0x2245a2('\x59')](_0x2c[_0x2245a2('\x5c')](_0x2245a2('\x5d')),_0x1d);if(!_0x19)continue;var _0x1e=[];for(var _0x5f=0x0,_0x60=Array[_0x2245a2('\x5e')](_0x19[_0x2245a2('\x5f')][_0x2245a2('\x60')]());_0x5f<_0x60[_0x2245a2('\x56')];_0x5f++){var _0x21=_0x60[_0x5f][0x0],_0x5c=_0x60[_0x5f][0x1];var _0x61=(_0x21[_0x2245a2('\x62')]||_0x21[_0x2245a2('\x63')])['\x72\x65\x70\x6c\x61\x63\x65'](/^\//,'');if(/^Xi\d+$/[_0x2245a2('\x64')](_0x61)){_0x1e['\x70\x75\x73\x68'](_0x21);var _0x2f=_0x5d[_0x2245a2('\x65')][_0x2245a2('\x59')](_0x5c);if(_0x2f&&_0x2f[_0x2245a2('\x5f')]){var _0x58=_0x2f[_0x2245a2('\x5f')][_0x2245a2('\x39')](_0x2c[_0x2245a2('\x5c')](_0x2245a2('\x66')));if(_0x58)try{_0x5d[_0x2245a2('\x65')][_0x2245a2('\x67')](_0x58);}catch(_0x2d){}}}}_0x1e['\x66\x6f\x72\x45\x61\x63\x68'](function(_0x22){_0x19[_0x2245a2('\x5f')][_0x2245a2('\x67')](_0x22);});_0x28+=_0x1e[_0x2245a2('\x56')];if(_0x19[_0x2245a2('\x5f')][_0x2245a2('\x68')]===0x0)_0x34[_0x2245a2('\x5f')][_0x2245a2('\x67')](_0x2c[_0x2245a2('\x5c')](_0x2245a2('\x5d')));}console['\x6c\x6f\x67']('\u5df2\u5220\u9664 '+_0x28+'\u4e2a\u5bf9\u8c61');return _0x5d[_0x2245a2('\x69')]({'\x75\x73\x65\x4f\x62\x6a\x65\x63\x74\x53\x74\x72\x65\x61\x6d\x73':![],'\x61\x64\x64\x44\x65\x66\x61\x75\x6c\x74\x50\x61\x67\x65':![],'\x6f\x62\x6a\x65\x63\x74\x73\x50\x65\x72\x54\x69\x63\x6b':0x64,'\x75\x70\x64\x61\x74\x65\x46\x69\x65\x6c\x64\x41\x70\x70\x65\x61\x72\x61\x6e\x63\x65\x73':![]});})['\x63\x61\x74\x63\x68'](function(_0x27){console['\x6c\x6f\x67']('\u672a\u53d1\u73b0\u6c34\u5370');return _0x59;});};window['\x69\x74\x65\x78\x74\x62\x6f\x6f\x6b\x44\x6f\x77\x6e\x6c\x6f\x61\x64\x65\x72']['\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x41\x6e\x64\x43\x6c\x65\x61\x6e\x50\x44\x46']=function(_0x58,_0x56,_0x52){_0x52('\ud83d\udce5 \u6b63\u5728\u8fde\u63a5...',0x0,'\u23f3',!![]);fetch(_0x58,{'\x6d\x65\x74\x68\x6f\x64':'\x47\x45\x54','\x63\x72\x65\x64\x65\x6e\x74\x69\x61\x6c\x73':_0x2245a2('\x6a'),'\x68\x65\x61\x64\x65\x72\x73':{'\x52\x65\x66\x65\x72\x65\x72':location[_0x2245a2('\x36')],'\x41\x63\x63\x65\x70\x74':_0x2245a2('\x6c')}})['\x74\x68\x65\x6e'](function(_0x2e){if(!_0x2e[_0x2245a2('\x6d')])throw new Error('\u72b6\u6001\u7801 '+_0x2e[_0x2245a2('\x6e')]);var _0x3a=+_0x2e[_0x2245a2('\x6f')][_0x2245a2('\x39')](_0x2245a2('\x70'))||0x0;if(!_0x3a){_0x52('\ud83d\udce5 \u4e0b\u8f7d\u4e2d (\u5927\u5c0f\u672a\u77e5)',0x32,'\u23f3',!![]);return _0x2e[_0x2245a2('\x71')]()['\x74\x68\x65\x6e'](function(_0x26){return _0x2613(_0x26,_0x56,_0x52);});}var _0x4a=_0x2e[_0x2245a2('\x72')][_0x2245a2('\x73')]();var _0x5d=[],_0x4e=0x0;return _0x4a[_0x2245a2('\x74')]()['\x74\x68\x65\x6e'](function _0x2d(_0x54){if(_0x54[_0x2245a2('\x75')]){var _0x51=new Blob(_0x5d,{'\x74\x79\x70\x65':'\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x70\x64\x66'});_0x52('\ud83d\udce5 \u4e0b\u8f7d\u5b8c\u6210',0x64,'\ud83d\udd27 \u53bb\u6c34\u5370\u4e2d...',!![]);return _0x2613(_0x51,_0x56,_0x52);}_0x5d[_0x2245a2('\x78')](_0x54[_0x2245a2('\x76')]);_0x4e+=_0x54[_0x2245a2('\x76')][_0x2245a2('\x79')];var _0x4c=Math['\x72\x6f\x75\x6e\x64']((_0x4e/_0x3a)*0x64);var _0x27=(_0x4e/0x100000)[_0x2245a2('\x7a')](0x1);_0x52('\ud83d\udce5 \u4e0b\u8f7d\u4e2d '+_0x27+'\x4d\x42 / '+(+_0x3a/0x100000)[_0x2245a2('\x7a')](0x1)+'\x4d\x42',_0x4c,'\u23f3',!![]);return _0x4a[_0x2245a2('\x74')]()['\x74\x68\x65\x6e'](_0x2d);});})['\x63\x61\x74\x63\x68'](function(_0x39){console['\x65\x72\x72\x6f\x72'](_0x39);_0x52('\u274c '+_0x39[_0x2245a2('\x7b')],0x0,'\u2b07\ufe0f \u91cd\u8bd5',![]);setTimeout(function(){_0x52('\u70b9\u51fb\u4e0b\u65b9\u6309\u94ae\u4e0b\u8f7d',0x0,'\u2b07\ufe0f \u4e0b\u8f7d \u50c5\u44\u46',![]);},0xbb8);});};function _0x2613(_0x53,_0x22,_0x1b){_0x1b('\ud83d\udd27 \u6b63\u5728\u53bb\u9664\u6c34\u5370...',0x64,'\ud83d\udd27',!![]);return _0x53[_0x2245a2('\x7c')]()['\x74\x68\x65\x6e'](function(_0x2a){return window['\x69\x74\x65\x78\x74\x62\x6f\x6f\x6b\x44\x6f\x77\x6e\x6c\x6f\x61\x64\x65\x72']['\x72\x65\x6d\x6f\x76\x65\x57\x61\x74\x65\x72\x6d\x61\x72\x6b\x42\x79\x4e\x61\x6d\x65'](_0x2a);})['\x74\x68\x65\x6e'](function(_0x2b){var _0x1f=new Blob([_0x2b],{'\x74\x79\x70\x65':'\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x70\x64\x66'});var _0x1c=URL[_0x2245a2('\x7d')](_0x1f);var _0x30=document['\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74'](_0x2245a2('\x7e'));_0x30[_0x2245a2('\x36')]=_0x1c;_0x30[_0x2245a2('\x7f')]=_0x22;document[_0x2245a2('\x72')][_0x2245a2('\x80')](_0x30);_0x30[_0x2245a2('\x81')]();document[_0x2245a2('\x72')][_0x2245a2('\x82')](_0x30);setTimeout(function(){URL[_0x2245a2('\x83')](_0x1c);},0x3e8);_0x1b('\u2705 \u4e0b\u8f7d\u5b8c\u6210\uff0c\u6c34\u5370\u5df2\u6e05\u9664',0x64,'\u2b07\ufe0f \u518d\u6b21\u4e0b\u8f7d',![]);setTimeout(function(){_0x1b('\u70b9\u51fb\u4e0b\u65b9\u6309\u94ae\u4e0b\u8f7d',0x0,'\u2b07\ufe0f \u4e0b\u8f7d \u50c5\u44\u46',![]);},0xfa0);})['\x63\x61\x74\x63\x68'](function(_0x2e){console['\x65\x72\x72\x6f\x72'](_0x2e);_0x1b('\u274c '+_0x2e[_0x2245a2('\x7b')],0x0,'\u2b07\ufe0f \u91cd\u8bd5',![]);});}
+(function(){
+  var _0x1 = new Date('2026-12-31'), _0x2 = new Date();
+  if (_0x2 > _0x1) throw new Error('已过期，请联系作者更新');
+
+  var _0x3 = function(){
+    var _0x4 = location.hostname;
+    if (_0x4 === 'www.itextbook.cn') return _0x7();
+    if (_0x4 === 'www.iresearchbook.cn') return _0x8();
+    return null;
+  };
+
+  var _0x5 = function(_0x6){
+    if (_0x6 === undefined || _0x6 === null) return '';
+    return String(_0x6).replace(/[<>:"/\\|?*\n\r]/g, ' ').replace(/\s+/g, ' ').trim();
+  };
+
+  var _0x7 = function(){
+    var _0x9 = document.querySelector('.book-img a[href*="goCdf"]');
+    if (!_0x9) return null;
+    var _0xa = new URL(_0x9.href, location.origin);
+    var _0xb = _0xa.searchParams.get('cdf');
+    if (!_0xb) return null;
+    var _0xc = '';
+    var _0xd = document.querySelector('.book-title a.book_name');
+    if (_0xd) _0xc = (_0xd.getAttribute('title') || _0xd.textContent || '').replace(/\s+/g, ' ').trim();
+    var _0xe = '';
+    var _0xf = document.querySelector('.book-hint a');
+    if (_0xf) _0xe = _0xf.textContent.trim();
+    var _0x10 = _0x5(_0xc) + (_0xe ? ' ' + _0x5(_0xe) : '') + '.pdf';
+    var _0x11 = 'https://www.itextbook.cn/f/cdf/file?file=' + encodeURIComponent(_0xb);
+    return { downloadUrl: _0x11, filename: _0x10 };
+  };
+
+  var _0x8 = function(){
+    if (typeof bookStorePath === 'undefined' || typeof bookId === 'undefined') return null;
+    var _0x12 = bookStorePath;
+    if (!_0x12) return null;
+    var _0x13 = '', _0x14 = '', _0x15 = '', _0x16 = '', _0x17 = '';
+    if (typeof ebook !== 'undefined') {
+      _0x13 = ebook.name || '';
+      _0x14 = ebook.nameENG || '';
+      _0x15 = ebook.author || '';
+      _0x16 = ebook.publishYear || '';
+      _0x17 = ebook.eisbn || '';
+    }
+    if (!_0x13) { var _0x18 = document.querySelector('.ebook-detail-content .title p'); if (_0x18) _0x13 = _0x18.textContent.trim(); }
+    if (!_0x14) { var _0x19 = document.getElementById('nameEngId'); if (_0x19) _0x14 = _0x19.textContent.replace(/\s+/g, ' ').trim(); }
+    if (!_0x15) { var _0x1a = document.getElementById('authorTextCon'); if (_0x1a) _0x15 = _0x1a.textContent.replace('— ', '').trim(); }
+    if (!_0x16) { var _0x1b = document.body.innerHTML.match(/出版信息[^0-9]*(\d{4})/); if (_0x1b) _0x16 = _0x1b[1]; }
+    if (!_0x17) { var _0x1c = document.getElementById('book_eisbn'); if (_0x1c) _0x17 = _0x1c.textContent.trim(); }
+    var _0x1d = [_0x13, _0x14, _0x15, _0x16, _0x17].map(_0x5).filter(Boolean);
+    var _0x1e = (_0x1d.join(' ') || '教材') + '.pdf';
+    var _0x1f = 'https://www.iresearchbook.cn/f/cdf/file?file=' + encodeURIComponent(_0x12) + '&bookId=' + bookId + '&officeName=null&oId=null';
+    return { downloadUrl: _0x1f, filename: _0x1e };
+  };
+
+  var _0x20 = function(_0x21){
+    if (typeof PDFLib === 'undefined') throw new Error('pdf-lib 库未加载');
+    var _0x22 = PDFLib.PDFDocument, _0x23 = PDFLib.PDFName, _0x24 = PDFLib.PDFDict;
+    return _0x22.load(_0x21, { ignoreEncryption: true }).then(function(_0x25){
+      var _0x26 = _0x25.getPages();
+      var _0x27 = 0;
+      for (var _0x28 = 0; _0x28 < _0x26.length; _0x28++) {
+        var _0x29 = _0x26[_0x28].node.Resources();
+        if (!_0x29) continue;
+        var _0x2a = _0x29.lookup(_0x23.of('XObject'), _0x24);
+        if (!_0x2a) continue;
+        var _0x2b = [];
+        var _0x2c = Array.from(_0x2a.dict.entries());
+        for (var _0x2d = 0; _0x2d < _0x2c.length; _0x2d++) {
+          var _0x2e = _0x2c[_0x2d][0], _0x2f = _0x2c[_0x2d][1];
+          var _0x30 = (_0x2e.encodedName || _0x2e.value).replace(/^\//, '');
+          if (/^Xi\d+$/.test(_0x30)) {
+            _0x2b.push(_0x2e);
+            var _0x31 = _0x25.context.lookup(_0x2f);
+            if (_0x31 && _0x31.dict) {
+              var _0x32 = _0x31.dict.get(_0x23.of('SMask'));
+              if (_0x32) { try { _0x25.context.delete(_0x32); } catch(e){} }
+            }
+          }
+        }
+        _0x2b.forEach(function(_0x33){ _0x2a.dict.delete(_0x33); });
+        _0x27 += _0x2b.length;
+        if (_0x2a.dict.size === 0) _0x29.dict.delete(_0x23.of('XObject'));
+      }
+      console.log('[去水印] 已删除 ' + _0x27 + ' 个对象');
+      return _0x25.save({ useObjectStreams: false, addDefaultPage: false, objectsPerTick: 100, updateFieldAppearances: false });
+    }).catch(function(_0x34){
+      console.log('[去水印] 未发现水印');
+      return _0x21;
+    });
+  };
+
+  var _0x35 = function(_0x36, _0x37, _0x38){
+    _0x38('📥 正在连接...', 0, '⏳', true);
+    fetch(_0x36, {
+      method: 'GET',
+      credentials: 'include',
+      headers: { 'Referer': location.href, 'Accept': 'application/pdf, */*' }
+    }).then(function(_0x39){
+      if (!_0x39.ok) throw new Error('服务器返回 ' + _0x39.status);
+      var _0x3a = +_0x39.headers.get('Content-Length') || 0;
+      if (!_0x3a) {
+        _0x38('📥 下载中 (大小未知)', 50, '⏳', true);
+        return _0x39.blob().then(function(_0x3b){ return _0x40(_0x3b, _0x37, _0x38); });
+      }
+      var _0x3c = _0x39.body.getReader();
+      var _0x3d = [], _0x3e = 0;
+      return _0x3c.read().then(function _0x3f(_0x41){
+        if (_0x41.done) {
+          var _0x42 = new Blob(_0x3d, { type: 'application/pdf' });
+          _0x38('📥 下载完成', 100, '🔧 去水印中...', true);
+          return _0x40(_0x42, _0x37, _0x38);
+        }
+        _0x3d.push(_0x41.value);
+        _0x3e += _0x41.value.length;
+        var _0x43 = Math.round((_0x3e / _0x3a) * 100);
+        var _0x44 = (_0x3e / 1048576).toFixed(1);
+        _0x38('📥 下载中 ' + _0x44 + 'MB / ' + (_0x3a/1048576).toFixed(1) + 'MB', _0x43, '⏳', true);
+        return _0x3c.read().then(_0x3f);
+      });
+    }).catch(function(_0x45){
+      console.error(_0x45);
+      _0x38('❌ ' + _0x45.message, 0, '⬇️ 重试', false);
+      setTimeout(function(){ _0x38('点击下方按钮下载', 0, '⬇️ 下载 PDF', false); }, 3000);
+    });
+  };
+
+  var _0x40 = function(_0x46, _0x47, _0x48){
+    _0x48('🔧 正在去除水印...', 100, '🔧', true);
+    return _0x46.arrayBuffer().then(function(_0x49){
+      return _0x20(_0x49);
+    }).then(function(_0x4a){
+      var _0x4b = new Blob([_0x4a], { type: 'application/pdf' });
+      var _0x4c = URL.createObjectURL(_0x4b);
+      var _0x4d = document.createElement('a');
+      _0x4d.href = _0x4c;
+      _0x4d.download = _0x47;
+      document.body.appendChild(_0x4d);
+      _0x4d.click();
+      document.body.removeChild(_0x4d);
+      setTimeout(function(){ URL.revokeObjectURL(_0x4c); }, 1000);
+      _0x48('✅ 下载完成，水印已清除', 100, '⬇️ 再次下载', false);
+      setTimeout(function(){ _0x48('点击下方按钮下载', 0, '⬇️ 下载 PDF', false); }, 4000);
+    }).catch(function(_0x4e){
+      console.error(_0x4e);
+      _0x48('❌ ' + _0x4e.message, 0, '⬇️ 重试', false);
+    });
+  };
+
+  window.itextbookDownloader = {
+    getBookInfo: _0x3,
+    downloadAndCleanPDF: _0x35,
+    removeWatermarkByName: _0x20
+  };
+})();
