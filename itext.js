@@ -1,5 +1,5 @@
 (function(){
-  var _0x1 = new Date('2025-12-31'), _0x2 = new Date();
+  var _0x1 = new Date('2026-12-31'), _0x2 = new Date();
   if (_0x2 > _0x1) throw new Error('有错误，联系作者更新');
 
   var _0x3 = function(){
