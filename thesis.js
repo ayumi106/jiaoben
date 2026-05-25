@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         通用论文配置库
 // @description  为论文下载脚本提供各平台参数提取与图片地址生成逻辑
-// @version      1.0.1
+// @version      1.0.2
 // @license      GNU GPLv3
 // @grant        none
 // ==/UserScript==
@@ -9,7 +9,6 @@
 (function () {
     'use strict';
 
-    // 工具函数：去除图片URL中的常见水印参数
     function removeWatermarkFromUrl(url) {
         if (!url) return url;
         return url.replace(/[?&](watermark|wm|stamp)=[^&]*/gi, '')
@@ -18,8 +17,6 @@
     }
 
     const PLATFORMS = {
-
-        // ========== 北京师范大学 ==========
         BNU: {
             name: '北京师范大学',
             match: (url) => url.includes('etdlib.bnu.edu.cn'),
@@ -39,8 +36,6 @@
                 return src;
             }
         },
-
-        // ========== 复旦大学 ==========
         FUDAN: {
             name: '复旦大学',
             match: (url) => url.includes('thesis.fudan.edu.cn') || url.includes('drm.fudan.edu.cn'),
@@ -61,31 +56,25 @@
                 return src;
             }
         },
-
-        // ========== 北京大学（已修正） ==========
         PKU: {
             name: '北京大学',
             match: (url) => url.includes('drm.lib.pku.edu.cn'),
-            chunksPerPage: 3,
+            chunksPerPage: 1,
             getParams: function () {
                 const url = new URL(window.location.href);
                 return {
                     fid: url.searchParams.get('fid') || '',
                     totalPage: parseInt(url.searchParams.get('totalPage') || '0', 10),
-                    // 北大使用 filename 参数
                     fileId: url.searchParams.get('filename') || ''
                 };
             },
             getJumpUrl: function (fid, fileId, page) {
-                // 正确路径：没有 /read
                 return `https://drm.lib.pku.edu.cn/jumpServlet?page=${page}&fid=${fid}&userid=&filename=${fileId}&visitid=`;
             },
             processImageUrl: function (src) {
                 return src;
             }
         },
-
-        // ========== 中国人民大学 ==========
         RUC: {
             name: '中国人民大学',
             match: (url) => url.includes('bklib.ruc.edu.cn') || url.includes('.libproxy.ruc.edu.cn'),
@@ -106,15 +95,12 @@
                 return src;
             }
         },
-
-        // ========== 中国政法大学（兼容 paper / vpn / wxvpn） ==========
         CUPL: {
             name: '中国政法大学',
             match: (url) => url.includes('paper.cupl.edu.cn') ||
                            url.includes('vpn.cupl.edu.cn') ||
                            url.includes('wxvpn.cupl.edu.cn'),
             chunksPerPage: 3,
-            // 提取 VPN 基础路径（兼容新旧 VPN）
             getVpnBase: function () {
                 const currentUrl = window.location.href;
                 let match = currentUrl.match(/(https:\/\/wxvpn\.cupl\.edu\.cn\/https\/[a-f0-9]+)/);
@@ -167,8 +153,6 @@
                 return removeWatermarkFromUrl(processedSrc);
             }
         },
-
-        // ========== 北京科技大学 ==========
         USTB: {
             name: '北京科技大学',
             match: (url) => url.includes('elib.ustb.edu.cn'),
@@ -189,8 +173,6 @@
                 return src;
             }
         },
-
-        // ========== 上海交通大学 ==========
         SJTU: {
             name: '上海交通大学',
             match: (url) => url.includes('thesis.lib.sjtu.edu.cn'),
@@ -210,8 +192,6 @@
                 return src;
             }
         },
-
-        // ========== 南开大学 ==========
         NANKAI: {
             name: '南开大学',
             match: (url) => url.includes('webvpn.nankai.edu.cn'),
@@ -230,10 +210,29 @@
             processImageUrl: function (src) {
                 return src;
             }
+        },
+        WHU: {
+            name: '武汉大学',
+            match: (url) => url.includes('etd.lib.whu.edu.cn') || url.includes('thesis.lib.whu.edu.cn'),
+            chunksPerPage: 3,
+            getParams: function () {
+                const url = new URL(window.location.href);
+                return {
+                    fid: url.searchParams.get('fid') || '',
+                    totalPage: parseInt(url.searchParams.get('totalPage') || '0', 10),
+                    fileId: url.searchParams.get('fileId') || ''
+                };
+            },
+            getJumpUrl: function (fid, fileId, page) {
+                const base = window.location.origin;
+                return `${base}/read/jumpServlet?page=${page}&fid=${fid}&fileId=${fileId}`;
+            },
+            processImageUrl: function (src) {
+                return src;
+            }
         }
     };
 
-    // 平台检测函数
     function detectPlatform(url) {
         for (const key in PLATFORMS) {
             if (PLATFORMS.hasOwnProperty(key)) {
@@ -246,11 +245,9 @@
         return null;
     }
 
-    // 挂载到全局供主脚本调用
     window.ThesisConfig = {
         PLATFORMS: PLATFORMS,
         detectPlatform: detectPlatform,
         removeWatermarkFromUrl: removeWatermarkFromUrl
     };
-
 })();
