@@ -211,9 +211,28 @@
                 return src;
             }
         },
+        BJUM: {
+            name: '北京医科大学',
+            match: (url) => url.includes('xuewei.bjmu.edu.cn'),
+            chunksPerPage: 3,
+            getParams: function () {
+                const url = new URL(window.location.href);
+                return {
+                    fid: url.searchParams.get('keyid') || url.searchParams.get('fid') || '',
+                    totalPage: parseInt(url.searchParams.get('totalPage') || '0', 10),
+                    fileId: url.searchParams.get('filename') || url.searchParams.get('fileId') || ''
+                };
+            },
+            getJumpUrl: function (fid, fileId, page) {
+                return `https://xuewei.bjmu.edu.cn/read/jumpServlet?page=${page}&fid=${fid}&filename=${fileId}`;
+            },
+            processImageUrl: function (src) {
+                return src;
+            }
+        },
         WHU: {
             name: '武汉大学',
-            match: (url) => url.includes('etd.lib.whu.edu.cn') || url.includes('thesis.lib.whu.edu.cn'),
+            match: (url) => url.includes('paper.lib.whu.edu.cn') || url.includes('paperright.lib.whu.edu.cn'),
             chunksPerPage: 3,
             getParams: function () {
                 const url = new URL(window.location.href);
