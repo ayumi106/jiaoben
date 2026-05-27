@@ -55,7 +55,7 @@
         PKU: {
             name: '北京大学',
             match: (url) => url.includes('drm.lib.pku.edu.cn') || url.includes('thesis.lib.pku.edu.cn'),
-            chunksPerPage: 1,
+            chunksPerPage: 3,
             getParams: function () {
                 const url = new URL(window.location.href);
                 return {
