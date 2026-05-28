@@ -227,7 +227,7 @@
         NANKAI: {
             name: '南开大学',
             match: (url) => url.includes('webvpn.nankai.edu.cn'),
-            chunksPerPage: 1,
+            chunksPerPage: 3,
             getParams: function () {
                 const url = new URL(window.location.href);
                 return {
