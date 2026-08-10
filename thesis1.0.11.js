@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         通用论文配置库
 // @description  为论文下载脚本提供各平台参数提取与图片地址生成逻辑
-// @version      1.0.10
+// @version      1.0.11
 // @license      GNU GPLv3
 // @grant        none
 // ==/UserScript==
@@ -17,6 +17,7 @@
     }
 
     const PLATFORMS = {
+        // 北京师范大学（onevpn 参数修正）
         BNU: {
             name: '北京师范大学',
             match: (url) => url.includes('etdlib.bnu.edu.cn') || url.includes('onevpn.bnu.edu.cn'),
@@ -32,13 +33,15 @@
                 return {
                     fid: url.searchParams.get('fid') || '',
                     totalPage: parseInt(url.searchParams.get('totalPage') || '0', 10),
-                    fileId: url.searchParams.get('fileId') || ''
+                    // VPN 模式下优先取 filename 参数
+                    fileId: url.searchParams.get('filename') || url.searchParams.get('fileId') || ''
                 };
             },
             getJumpUrl: function (fid, fileId, page) {
                 const vpnBase = this.getVpnBase();
                 if (vpnBase) {
-                    return `${vpnBase}/read/jumpServlet?vpn-1&page=${page}&fid=${fid}&fileId=${fileId}`;
+                    // 修正后的 VPN 参数
+                    return `${vpnBase}/read/jumpServlet?vpn-12-o2-etdlib.bnu.edu.cn&page=${page}&fid=${fid}&userid=&filename=${fileId}&visitid=`;
                 } else {
                     return `https://etdlib.bnu.edu.cn/read/jumpServlet?page=${page}&fid=${fid}&fileId=${fileId}`;
                 }
@@ -57,6 +60,8 @@
                 return src;
             }
         },
+
+        // 复旦大学
         FUDAN: {
             name: '复旦大学',
             match: (url) => url.includes('thesis.fudan.edu.cn') || url.includes('drm.fudan.edu.cn'),
@@ -77,6 +82,8 @@
                 return removeWatermarkFromUrl(src);
             }
         },
+
+        // 北京大学
         PKU: {
             name: '北京大学',
             match: (url) => url.includes('drm.lib.pku.edu.cn') || url.includes('thesis.lib.pku.edu.cn'),
@@ -95,6 +102,8 @@
             },
             processImageUrl: function (src) { return src; }
         },
+
+        // 中国人民大学
         RUC: {
             name: '中国人民大学',
             match: (url) => url.includes('bklib.ruc.edu.cn') || url.includes('.libproxy.ruc.edu.cn'),
@@ -113,6 +122,8 @@
             },
             processImageUrl: function (src) { return src; }
         },
+
+        // 中国政法大学
         CUPL: {
             name: '中国政法大学',
             match: (url) => url.includes('paper.cupl.edu.cn') ||
@@ -170,12 +181,12 @@
                 return removeWatermarkFromUrl(processedSrc);
             }
         },
-        // 北京科技大学（更新：支持 elib.ustb.edu.cn 的 VPN 代理）
+
+        // 北京科技大学
         USTB: {
             name: '北京科技大学',
             match: (url) => url.includes('elib.ustb.edu.cn'),
             chunksPerPage: 3,
-            // 提取 VPN 基础路径（例如 https://elib.ustb.edu.cn/https/77726476...）
             getVpnBase: function () {
                 const currentUrl = window.location.href;
                 const match = currentUrl.match(/(https:\/\/elib\.ustb\.edu\.cn\/https\/[a-f0-9]+)/);
@@ -187,25 +198,21 @@
                 return {
                     fid: url.searchParams.get('fid') || '',
                     totalPage: parseInt(url.searchParams.get('totalPage') || '0', 10),
-                    // VPN 模式下优先取 filename 参数，否则取 fileId
                     fileId: url.searchParams.get('filename') || url.searchParams.get('fileId') || ''
                 };
             },
             getJumpUrl: function (fid, fileId, page) {
                 const vpnBase = this.getVpnBase();
                 if (vpnBase) {
-                    // VPN 代理模式
                     return `${vpnBase}/read/jumpServlet?vpn-12-o2-thesis.ustb.edu.cn&page=${page}&fid=${fid}&userid=&filename=${fileId}&visitid=`;
                 } else {
-                    // 直连模式
                     const base = window.location.origin;
                     return `${base}/read/jumpServlet?page=${page}&fid=${fid}&fileId=${fileId}`;
                 }
             },
             processImageUrl: function (src) {
                 const vpnBase = this.getVpnBase();
-                if (!vpnBase) return src; // 直连模式原样返回
-                // VPN 模式：将 thesis.ustb.edu.cn 的图片地址转换为代理地址
+                if (!vpnBase) return src;
                 if (src && src.includes('thesis.ustb.edu.cn')) {
                     const pathMatch = src.match(/\/read\/pdfboxServlet\?.*$/);
                     if (pathMatch) {
@@ -217,6 +224,8 @@
                 return src;
             }
         },
+
+        // 上海交通大学
         SJTU: {
             name: '上海交通大学',
             match: (url) => url.includes('thesis.lib.sjtu.edu.cn'),
@@ -234,6 +243,8 @@
             },
             processImageUrl: function (src) { return src; }
         },
+
+        // 南开大学
         NANKAI: {
             name: '南开大学',
             match: (url) => url.includes('webvpn.nankai.edu.cn') || 
@@ -278,6 +289,8 @@
                 return src;
             }
         },
+
+        // 北京医科大学
         BJUM: {
             name: '北京医科大学',
             match: (url) => url.includes('xuewei.bjmu.edu.cn'),
@@ -295,6 +308,8 @@
             },
             processImageUrl: function (src) { return src; }
         },
+
+        // 武汉大学
         WHU: {
             name: '武汉大学',
             match: (url) => url.includes('paper.lib.whu.edu.cn') || url.includes('paperright.lib.whu.edu.cn'),
